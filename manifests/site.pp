@@ -20,13 +20,13 @@ Exec {
 
   environment => [
     "HOMEBREW_CACHE=${homebrew::config::cachedir}",
-    "HOME=/Users/${::boxen_user}"
+    "HOME=/Users/${::luser}"
   ]
 }
 
 File {
   group => 'staff',
-  owner => $boxen_user
+  owner => $luser
 }
 
 Package {
@@ -39,10 +39,7 @@ Repository {
   extra    => [
     '--recurse-submodules'
   ],
-  require  => File["${boxen::config::bindir}/boxen-git-credential"],
-  config   => {
-    'credential.helper' => "${boxen::config::bindir}/boxen-git-credential"
-  }
+  require  => Class['git']
 }
 
 Service {
@@ -64,13 +61,13 @@ node default {
   }
 
   # node versions
-  include nodejs::v0_6
-  include nodejs::v0_8
-  include nodejs::v0_10
+#  include nodejs::v0_6
+#  include nodejs::v0_8
+#  include nodejs::v0_10
 
   # default ruby versions
   include ruby::1_8_7
-  include ruby::1_9_2
+#  include ruby::1_9_2
   include ruby::1_9_3
   include ruby::2_0_0
 
