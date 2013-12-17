@@ -16,7 +16,7 @@ class people::tjmcs {
     edition => 'ultimate',
   }
 
-  ruby::version { 'jruby-1.7.2': }
+  ruby::version { 'jruby-1.7.5': }
 
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => 'puppet:///modules/people/tjmcs/vagrant-vmware-fusion.lic',
