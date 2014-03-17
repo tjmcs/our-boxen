@@ -1,22 +1,23 @@
 class people::tjmcs {
   include caffeine
-  include divvy
+#  include divvy
   include dropbox
   include flux
+  include iterm2::stable
   include java
   include mou
   include notational_velocity::nvalt
   include rubymine
-  include onepassword
+#  include onepassword
   include skype
   include sublime_text_2
   include vagrant
 
-  class { 'intellij':
-    edition => 'ultimate',
-  }
+#  class { 'intellij':
+#    edition => 'ultimate',
+#  }
 
-  ruby::version { 'jruby-1.7.5': }
+  ruby::version { 'jruby-1.7.6': }
 
   vagrant::plugin { 'vagrant-vmware-fusion':
     license => 'puppet:///modules/people/tjmcs/vagrant-vmware-fusion.lic',
